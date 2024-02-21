@@ -21,22 +21,24 @@ const generaNumeroAleatorio = (min, max) => {
 	return Math.floor(Math.random() * (max - min)) + min;
 }
 
+// ! Necesesito volver a agregar una portada al li 
+// ? <img src="${generaLinkDeFotoAleatorio()}" alt="${titulo}" id="imagen">
+// * en la linea 40
 const procesarLibros = async () => {
 	books.map((book) => {
 		 // Esto debe cambiar , no se puede usar map
 		console.log(book);
 		const { id, title: titulo, author: autor, year, genre: genero, price: precio, cover } = book;
 		listaLibros.innerHTML += `
-		<li>
+		<div>
 			<span>${id}</span>
 			<h3>${titulo}</h3>
 			<p>${autor}</p>
 			<p>${year}</p>
 			<p>${genero}</p>
 			<p>${precio}</p>
-			<img src="${generaLinkDeFotoAleatorio()}" alt="${titulo}" id="imagen">
 			
-		</li>
+		</div>
 	`;
 		counter++;
 
