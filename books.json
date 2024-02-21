@@ -6,7 +6,7 @@
         "year": 1951,
         "genre": "Fiction",
         "price": 10.00,
-        "cover": "catcher-in-the-rye.jpg"
+        "cover": "https://random.imagecdn.app/500/150"
     },
     {
         "id": 2,
@@ -15,7 +15,7 @@
         "year": 1960,
         "genre": "Fiction",
         "price": 12.00,
-        "cover": "to-kill-a-mockingbird.jpg"
+        "cover": "https://random.imagecdn.app/500/150"
     },
     {
         "id": 3,
@@ -24,7 +24,7 @@
         "year": 1949,
         "genre": "Fiction",
         "price": 15.00,
-        "cover": "1984.jpg"
+        "cover": "https://random.imagecdn.app/500/150"
     },
     {
         "id": 4,
@@ -33,7 +33,7 @@
         "year": 1925,
         "genre": "Fiction",
         "price": 11.00,
-        "cover": "the-great-gatsby.jpg"
+        "cover": "https://random.imagecdn.app/500/150"
     },
     {
         "id": 5,
@@ -42,6 +42,6 @@
         "year": 1939,
         "genre": "Fiction",
         "price": 14.00,
-        "cover": "the-grapes-of-wrath.jpg"
+        "cover": "https://random.imagecdn.app/500/150"
     }
 ]
