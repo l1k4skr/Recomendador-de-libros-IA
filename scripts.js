@@ -1,3 +1,5 @@
+import { processMessage } from "./openia.js";
+
 const form = document.querySelector("form");
 const listaLibros = document.querySelector(".lista-libros");
 let books = []
@@ -5,7 +7,7 @@ let books = []
 let counter = 1;
 
 
-const leerLibros = async () => {
+async function leerLibros() {
 	try {
 		const response = await fetch("books.json");
 		const data = await response.json();
@@ -21,17 +23,12 @@ const generaNumeroAleatorio = (min, max) => {
 	return Math.floor(Math.random() * (max - min)) + min;
 }
 
-// ! Necesesito volver a agregar una portada al li 
-// ? <img src="${generaLinkDeFotoAleatorio()}" alt="${titulo}" id="imagen">
-// * en la linea 40
 const procesarLibros = async () => {
 	books.map((book) => {
-		 // Esto debe cambiar , no se puede usar map
-		console.log(book);
+		// Esto debe cambiar , no se puede usar map /?
 		const { id, title: titulo, author: autor, year, genre: genero, price: precio, cover } = book;
 		listaLibros.innerHTML += `
-		<div>
-			<span>${id}</span>
+		<div class="libro">
 			<h3>${titulo}</h3>
 			<p>${autor}</p>
 			<p>${year}</p>
@@ -47,9 +44,21 @@ const procesarLibros = async () => {
 form.addEventListener("submit", async function (event) {
 	event.preventDefault();
 	if (books.length === 0) {
-		console.assert(true)
 		await leerLibros();
 		await procesarLibros();
 	}
-	
+	console.assert(true)
+
+	const message = document.querySelector("#prompt").value;
+
+	fetch('http://localhost:3000/procesarTexto', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({ texto: message })
+	})
+		.then(response => response.json())
+
+	await processMessage(message);
 });

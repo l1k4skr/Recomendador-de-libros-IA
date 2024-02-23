@@ -1,13 +1,16 @@
 :root {
-    --primary-color: #0072ff;
-    --secondary-color: #f4f4f4;
-    --tertiary-color: #333;
-    --quaternary-color: #fff;
-    --quinary-color: #00000022;
-    --senary-color: #000000;
+    /* colors */
     --primary-dark-mode-background: #212121;
     --secondary-dark-mode-background: #2f2f2f;
     --primary-dark-mode-text-color: #f4f4f4;
+
+    /* fonts */
+    --primary-font: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: var(--primary-font);
 }
 
 body {
@@ -21,9 +24,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--primary-dark-mode-background);
-
-
 }
+
+
 
 main {
     display: flex;
@@ -31,15 +34,23 @@ main {
     align-items: center;
     flex-direction: column;
     margin: 20px auto;
-    max-width: 800px;
+    max-width: 1400px;
     padding: 20px;
     box-shadow: 0 0 10px 0 #00000022;
     background-color: var(--secondary-dark-mode-background);
     color: var(--primary-dark-mode-text-color);
-    width: 70%;
+    width: 90%;
     border-radius: 10px;
 }
 
+.prompt-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
 h1 {
     font-size: 2em;
     color: var(--primary-dark-mode-text-color);;
@@ -56,14 +67,6 @@ h1:hover {
 }
 
 
-.prompt-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    width: 100%;
-}
 
 form {
     width: 100%;
@@ -78,18 +81,16 @@ form {
     margin-top: 0px;
     width: 100%;
 }
-
-#prompt {
+#prompt{
     box-sizing: border-box;
     padding: 5px;
-    margin: 0px 0;
-    border: 3px solid #00000022;
     border-radius: 5px 0 0 5px;
     border-right: 0px;
     width: 100%;
     height: 50px;
-    font-weight: 300;
     resize: none;
+    font-size: 1.5em;
+
 }
 
 #prompt:focus {
@@ -114,7 +115,7 @@ form {
 
 .lista-lecturas {
     box-sizing: border-box;
-
+    width: 100%;
 
 
     & ul {
@@ -123,32 +124,30 @@ form {
         margin: 0;
         width: 100%;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+        gap: 10px;
+        justify-content: center;
     
-        & div {
+        & .libro {
+            width: 200px;
             padding: 10px;
             margin: 5px;
             border-radius: 5px;
             box-shadow: 0 0 10px 0 #00000022;
             background-color: var(--primary-dark-mode-background);
             color: var(--primary-dark-mode-text-color);
-            transition: all 0.5s ease;
+            transition: all 0.2s ease;
             cursor: pointer;
     
             &:hover {
-                background-color: #5e5e5e;
-                color: #000;
+                background-color: #00000022;
+                color: #d3cece;
             }
         }	
     
     }
 
 }
-
-
-
-
-
 
 #imagen {
     width: 100%;
@@ -158,7 +157,7 @@ form {
 
 #subtitle {
     font-size: 1.5em;
-    color: #333;
+    color: var(--primary-dark-mode-text-color);
     /* Un gris oscuro para contraste suave */
     text-shadow: 2px 2px 4px #aaa;
     /* Sombra suave para darle profundidad */
